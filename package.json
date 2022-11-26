@@ -1,0 +1,34 @@
+{
+  "name": "vscode-abnf",
+  "displayName": "ABNF Language",
+  "description": "ABNF language for vscode",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "abnf",
+        "aliases": [
+          "ABNF",
+          "abnf"
+        ],
+        "extensions": [
+          ".abnf"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "abnf",
+        "scopeName": "source.abnf",
+        "path": "./syntaxes/abnf.tmLanguage"
+      }
+    ]
+  }
+}
