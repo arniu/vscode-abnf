@@ -5,25 +5,20 @@
   },
   // symbols used as brackets
   "brackets": [
-    ["{", "}"],
     ["[", "]"],
     ["(", ")"]
   ],
   // symbols that are auto closed when typing
   "autoClosingPairs": [
-    ["{", "}"],
     ["[", "]"],
     ["(", ")"],
-    ["\"", "\""],
-    ["'", "'"]
+    ["\"", "\""]
   ],
   // symbols that can be used to surround a selection
   "surroundingPairs": [
-    ["{", "}"],
     ["[", "]"],
     ["(", ")"],
-    ["\"", "\""],
-    ["'", "'"]
+    ["\"", "\""]
   ],
   //              rulename                bin-val                         dec-val                      hex-val                                     defined-as
   "wordPattern": "([a-zA-Z][a-zA-Z\\d-]*)|(%b[01]((\\.[01]+)+|(-[01]+))?)|(%d\\d((\\.\\d+)+|(-\\d+))?)|(%x[\\dA-F]((\\.[\\dA-F]+)+|(-[\\dA-F]+))?)|(=/?)"
