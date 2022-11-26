@@ -4,10 +4,11 @@
   "description": "ABNF language for vscode",
   "publisher": "arniu",
   "license": "Apache-2.0",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.5.0"
   },
+  "repository": "https://github.com/arniu/vscode-abnf",
   "categories": [
     "Programming Languages"
   ],
