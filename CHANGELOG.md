@@ -14,6 +14,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - What changed ...
 
+## [0.1.1] - 2022-11-26
+
+### Added
+
+- Add icon
+
 ## [0.1.0] - 2022-11-26
 
 ### Added
