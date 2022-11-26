@@ -14,6 +14,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - What changed ...
 
+## [0.1.2] - 2022-11-26
+
+### Changed
+
+- Remake icon
+- Rename samples => example
+
 ## [0.1.1] - 2022-11-26
 
 ### Added
