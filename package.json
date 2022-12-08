@@ -32,6 +32,16 @@
         "language": "abnf",
         "scopeName": "source.abnf",
         "path": "./syntaxes/abnf.tmLanguage"
+      },
+      {
+        "scopeName": "markdown.abnf.codeblock",
+        "path": "./syntaxes/codeblock-abnf.json",
+        "injectTo": [
+          "text.html.markdown"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.abnf": "abnf"
+        }
       }
     ]
   }
