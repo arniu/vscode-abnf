@@ -14,6 +14,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - What changed ...
 
+## [0.2.0] - 2022-12-09
+
+### Added
+
+- Add syntax highlights in markdown codeblocks ([#2])
+
+[#2]: https://github.com/arniu/vscode-abnf/pull/2
+
 ## [0.1.2] - 2022-11-26
 
 ### Changed
