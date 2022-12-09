@@ -1,0 +1,28 @@
+{
+    "fileTypes": [],
+    "injectionSelector": "L:markup.fenced_code.block.markdown",
+    "patterns": [
+        {
+            "include": "#abnf-code-block"
+        }
+    ],
+    "repository": {
+        "abnf-code-block": {
+            "begin": "\\b(abnf)\\b(\\s+[^`~]*)?$",
+            "end": "(^|\\G)(?=\\s*[`~]{3,}\\s*$)",
+            "patterns": [
+                {
+                    "begin": "(^|\\G)(\\s*)(.*)",
+                    "while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
+                    "contentName": "meta.embedded.block.abnf",
+                    "patterns": [
+                        {
+                            "include": "source.abnf"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "scopeName": "markdown.abnf.codeblock"
+}
