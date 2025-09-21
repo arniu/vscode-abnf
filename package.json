@@ -48,8 +48,8 @@
     "commands": [
       {
         "command": "abnf.renameRule",
-        "title": "重命名ABNF规则",
-        "category": "ABNF"
+        "title": "%abnf.commands.renameRule.title%",
+        "category": "%abnf.commands.category%"
       }
     ],
     "keybindings": [

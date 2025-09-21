@@ -10,15 +10,16 @@
 - [x] Find all references (Shift+F12)
 - [x] Document symbols (Ctrl+Shift+O)
 - [x] Hover information with core rule details
+- [x] Internationalization support (中文 / English)
 - [ ] Format files
 
 ## Usage
 
 ### Renaming Rules
 
-1. **使用F2键**: 将光标放在规则名称上，按F2键即可重命名
+1. **使用 F2 键**: 将光标放在规则名称上，按 F2 键即可重命名
 2. **使用右键菜单**: 右键点击规则名称，选择"重命名符号"
-3. **使用命令面板**: 按Ctrl+Shift+P，输入"重命名ABNF规则"
+3. **使用命令面板**: 按 Ctrl+Shift+P，输入"重命名 ABNF 规则"
 
 重命名功能会自动找到并更新：
 - 规则定义行
@@ -26,9 +27,9 @@
 
 ### 其他功能
 
-- **跳转到定义**: 将光标放在规则名称上，按F12或Ctrl+点击
-- **查找所有引用**: 将光标放在规则名称上，按Shift+F12
-- **查看文档符号**: 按Ctrl+Shift+O查看文件中的所有规则
+- **跳转到定义**: 将光标放在规则名称上，按 F12 或 Ctrl+点击
+- **查找所有引用**: 将光标放在规则名称上，按 Shift+F12
+- **查看文档符号**: 按 Ctrl+Shift+O 查看文件中的所有规则
 - **悬停信息**: 将鼠标悬停在规则名称上查看详细信息
   - 核心规则显示完整定义和说明
   - 用户规则显示重命名提示

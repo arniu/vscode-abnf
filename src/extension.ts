@@ -1,10 +1,14 @@
 import * as vscode from 'vscode';
 import { AbnfLanguageServer } from './abnfLanguageServer';
+import { initializeMessages, getMessages, formatMessage } from './i18n';
 
 let languageServer: AbnfLanguageServer;
 
 export function activate(context: vscode.ExtensionContext) {
     console.log('ABNF语言扩展已激活');
+
+    // 初始化国际化消息
+    initializeMessages(vscode.env.language);
 
     // 创建语言服务器实例
     languageServer = new AbnfLanguageServer(context);
@@ -18,8 +22,9 @@ export function activate(context: vscode.ExtensionContext) {
                     return languageServer.provideRenameEdits(document, position, newName);
                 } catch (error) {
                     console.error('重命名错误:', error);
+                    const messages = getMessages();
                     const errorMessage = error instanceof Error ? error.message : String(error);
-                    vscode.window.showErrorMessage(`重命名失败: ${errorMessage}`);
+                    vscode.window.showErrorMessage(formatMessage(messages.ui.rename.renameFailed, errorMessage));
                     return null;
                 }
             }
@@ -76,7 +81,8 @@ export function activate(context: vscode.ExtensionContext) {
         const position = editor.selection.active;
         const wordRange = editor.document.getWordRangeAtPosition(position);
         if (!wordRange) {
-            vscode.window.showWarningMessage('请选择一个规则名称');
+            const messages = getMessages();
+            vscode.window.showWarningMessage(messages.ui.hover.userRuleHint);
             return;
         }
 
