@@ -69,10 +69,12 @@ export const zhCN: Messages = {
     },
     ui: {
         hover: {
-            coreRuleTitle: 'ABNF核心规则',
-            userRuleTitle: 'ABNF规则',
+            coreRuleTitle: 'ABNF 核心规则',
+            userRuleTitle: 'ABNF 规则',
             userRuleHint: '点击查看定义，或使用 F2 重命名。',
-            source: 'RFC 5234'
+            source: 'RFC 5234',
+            definition: '定义',
+            sourceLabel: '来源'
         },
         rename: {
             invalidRuleName: '无效的规则名称。规则名称必须以字母开头，只能包含字母、数字和连字符。',

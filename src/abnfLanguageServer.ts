@@ -214,8 +214,8 @@ export class AbnfLanguageServer {
             const markdown = new vscode.MarkdownString();
             markdown.appendMarkdown(`**${messages.ui.hover.coreRuleTitle}: ${ruleName}**\n\n`);
             markdown.appendMarkdown(`${coreRuleInfo.description}\n\n`);
-            markdown.appendMarkdown(`**定义**: \`${coreRuleInfo.definition}\`\n\n`);
-            markdown.appendMarkdown(`**来源**: ${messages.ui.hover.source}`);
+            markdown.appendMarkdown(`**${messages.ui.hover.definition}**: \`${coreRuleInfo.definition}\`\n\n`);
+            markdown.appendMarkdown(`**${messages.ui.hover.sourceLabel}**: ${messages.ui.hover.source}`);
             return new vscode.Hover(markdown);
         }
 

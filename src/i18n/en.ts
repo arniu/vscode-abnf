@@ -72,7 +72,9 @@ export const en: Messages = {
             coreRuleTitle: 'ABNF Core Rule',
             userRuleTitle: 'ABNF Rule',
             userRuleHint: 'Click to view definition, or use F2 to rename.',
-            source: 'RFC 5234'
+            source: 'RFC 5234',
+            definition: 'Definition',
+            sourceLabel: 'Source'
         },
         rename: {
             invalidRuleName: 'Invalid rule name. Rule names must start with a letter and can only contain letters, digits, and hyphens.',

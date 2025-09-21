@@ -14,6 +14,8 @@ export interface Messages {
             userRuleTitle: string;
             userRuleHint: string;
             source: string;
+            definition: string;
+            sourceLabel: string;
         };
         rename: {
             invalidRuleName: string;
