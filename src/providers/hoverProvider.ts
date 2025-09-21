@@ -9,12 +9,13 @@ import { getMessages } from '../i18n';
 export class HoverProvider {
     private parser: AbnfParser;
 
-    constructor() {
-        this.parser = new AbnfParser();
+    constructor(parser: AbnfParser) {
+        this.parser = parser;
     }
 
     /**
      * 提供悬停信息
+     * 优化：先检查核心规则，避免不必要的解析
      */
     provideHover(document: vscode.TextDocument, position: vscode.Position): vscode.Hover | null {
         const wordRange = document.getWordRangeAtPosition(position);
@@ -23,10 +24,9 @@ export class HoverProvider {
         }
 
         const ruleName = document.getText(wordRange);
-        const rules = this.parser.parseRules(document);
         const messages = getMessages();
 
-        // 检查是否是核心规则
+        // 优先检查是否是核心规则（无需解析文档）
         const coreRuleInfo = this.getCoreRuleInfo(ruleName);
         if (coreRuleInfo) {
             const markdown = new vscode.MarkdownString();
@@ -37,7 +37,8 @@ export class HoverProvider {
             return new vscode.Hover(markdown);
         }
 
-        // 检查是否是用户定义的规则
+        // 只有在不是核心规则时才解析文档（使用缓存）
+        const rules = this.parser.parseRules(document);
         if (rules.has(ruleName)) {
             const markdown = new vscode.MarkdownString();
             markdown.appendMarkdown(`**${messages.ui.hover.userRuleTitle}: ${ruleName}**\n\n`);
@@ -47,6 +48,7 @@ export class HoverProvider {
 
         return null;
     }
+
 
     /**
      * 获取核心规则信息

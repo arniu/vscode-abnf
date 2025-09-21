@@ -80,5 +80,8 @@
     "@types/node": "^24.5.2",
     "@types/vscode": "^1.104.0",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "lru-cache": "^11.2.1"
   }
 }

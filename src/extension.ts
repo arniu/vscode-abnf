@@ -13,6 +13,21 @@ export function activate(context: vscode.ExtensionContext) {
     // 创建语言服务器实例
     languageServer = new AbnfLanguageServer(context);
 
+    // 监听文档变化，自动清除缓存
+    const documentChangeListener = vscode.workspace.onDidChangeTextDocument((event) => {
+        if (event.document.languageId === 'abnf') {
+            // 清除该文档的缓存
+            languageServer.clearDocumentCache(event.document);
+        }
+    });
+
+    // 监听文档关闭，清除缓存
+    const documentCloseListener = vscode.workspace.onDidCloseTextDocument((document) => {
+        if (document.languageId === 'abnf') {
+            languageServer.clearDocumentCache(document);
+        }
+    });
+
     // 注册重命名提供者
     const renameProvider = vscode.languages.registerRenameProvider(
         { scheme: 'file', language: 'abnf' },
@@ -117,7 +132,9 @@ export function activate(context: vscode.ExtensionContext) {
         hoverProvider,
         formattingProvider,
         renameCommand,
-        formatCommand
+        formatCommand,
+        documentChangeListener,
+        documentCloseListener
     );
 }
 

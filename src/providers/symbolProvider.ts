@@ -9,8 +9,8 @@ import { getMessages } from '../i18n';
 export class SymbolProvider {
     private parser: AbnfParser;
 
-    constructor() {
-        this.parser = new AbnfParser();
+    constructor(parser: AbnfParser) {
+        this.parser = parser;
     }
 
     /**

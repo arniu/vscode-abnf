@@ -1,14 +1,28 @@
 import * as vscode from 'vscode';
+import { DocumentCache } from './documentCache';
 
 /**
  * ABNF 解析器
  * 负责解析 ABNF 文档，提取规则定义和引用
  */
 export class AbnfParser {
+    private cache: DocumentCache;
+
+    constructor() {
+        this.cache = new DocumentCache();
+    }
     /**
      * 解析 ABNF 文件，提取所有规则定义
+     * 使用缓存机制避免重复解析
      */
     parseRules(document: vscode.TextDocument): Map<string, vscode.Location> {
+        // 先尝试从缓存获取
+        const cachedRules = this.cache.getCachedRules(document);
+        if (cachedRules) {
+            return cachedRules;
+        }
+
+        // 缓存未命中，执行解析
         const rules = new Map<string, vscode.Location>();
         const text = document.getText();
         const lines = text.split('\n');
@@ -36,13 +50,23 @@ export class AbnfParser {
             }
         }
 
+        // 缓存解析结果
+        this.cache.setCachedRules(document, rules);
         return rules;
     }
 
     /**
      * 查找规则的所有引用
+     * 使用缓存机制避免重复解析
      */
     findRuleReferences(document: vscode.TextDocument, ruleName: string): vscode.Location[] {
+        // 先尝试从缓存获取
+        const cachedReferences = this.cache.getCachedReferences(document, ruleName);
+        if (cachedReferences) {
+            return cachedReferences;
+        }
+
+        // 缓存未命中，执行解析
         const references: vscode.Location[] = [];
         const text = document.getText();
 
@@ -67,7 +91,34 @@ export class AbnfParser {
             }
         }
 
+        // 缓存解析结果
+        this.cache.setCachedReferences(document, ruleName, references);
         return references;
+    }
+
+    /**
+     * 清除文档缓存
+     */
+    clearDocumentCache(document: vscode.TextDocument): void {
+        this.cache.clearDocumentCache(document);
+    }
+
+    /**
+     * 清除所有缓存
+     */
+    clearAllCache(): void {
+        this.cache.clearAllCache();
+    }
+
+    /**
+     * 获取缓存统计信息
+     */
+    getCacheStats(): {
+        rulesCache: { size: number; max: number; ttl: number };
+        referencesCache: { size: number; max: number; ttl: number };
+        entries: Array<{ uri: string; version: number; timestamp: number }>;
+    } {
+        return this.cache.getCacheStats();
     }
 
     /**

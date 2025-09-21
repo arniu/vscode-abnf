@@ -9,8 +9,8 @@ import { getMessages, formatMessage } from '../i18n';
 export class RenameProvider {
     private parser: AbnfParser;
 
-    constructor() {
-        this.parser = new AbnfParser();
+    constructor(parser: AbnfParser) {
+        this.parser = parser;
     }
 
     /**
