@@ -19,6 +19,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - 支持角括号形式的规则引用 (`<rulename>`)
 - 国际化支持（中文 / English）
 - 文档格式化功能 (Ctrl+Shift+I / Cmd+Shift+I)
+- 模块化架构重构，提高代码可维护性和扩展性
 
 ### Changed
 
