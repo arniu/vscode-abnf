@@ -61,22 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
         { scheme: 'file', language: 'abnf' },
         {
             provideHover(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken) {
-                const wordRange = document.getWordRangeAtPosition(position);
-                if (!wordRange) {
-                    return null;
-                }
-
-                const ruleName = document.getText(wordRange);
-                const rules = languageServer['parseAbnfRules'](document);
-
-                if (rules.has(ruleName)) {
-                    const markdown = new vscode.MarkdownString();
-                    markdown.appendMarkdown(`**ABNF规则: ${ruleName}**\n\n`);
-                    markdown.appendMarkdown(`点击查看定义，或使用F2重命名。`);
-                    return new vscode.Hover(markdown);
-                }
-
-                return null;
+                return languageServer.provideHover(document, position);
             }
         }
     );

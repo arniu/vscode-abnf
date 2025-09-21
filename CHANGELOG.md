@@ -14,7 +14,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - 跳转到定义功能 (F12键)
 - 查找所有引用功能 (Shift+F12键)
 - 文档符号支持 (Ctrl+Shift+O)
-- 悬停信息显示
+- 悬停信息显示（核心规则详细信息）
 - 规则名称验证
 - 支持角括号形式的规则引用 (`<rulename>`)
 
