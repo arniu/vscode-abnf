@@ -81,6 +81,9 @@ export const zhCN: Messages = {
             ruleNotDefined: '规则 "{0}" 未定义',
             renameFailed: '重命名失败: {0}'
         },
+        format: {
+            formatDocument: '格式化 ABNF 文档'
+        },
         general: {
             abnfRule: 'ABNF 规则'
         }

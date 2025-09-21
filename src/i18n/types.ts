@@ -22,6 +22,9 @@ export interface Messages {
             ruleNotDefined: string;
             renameFailed: string;
         };
+        format: {
+            formatDocument: string;
+        };
         general: {
             abnfRule: string;
         };

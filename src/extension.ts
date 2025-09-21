@@ -71,6 +71,16 @@ export function activate(context: vscode.ExtensionContext) {
         }
     );
 
+    // 注册格式化提供者
+    const formattingProvider = vscode.languages.registerDocumentFormattingEditProvider(
+        { scheme: 'file', language: 'abnf' },
+        {
+            provideDocumentFormattingEdits(document: vscode.TextDocument) {
+                return languageServer.provideDocumentFormattingEdits(document);
+            }
+        }
+    );
+
     // 注册重命名命令
     const renameCommand = vscode.commands.registerCommand('abnf.renameRule', () => {
         const editor = vscode.window.activeTextEditor;
@@ -89,6 +99,15 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.executeCommand('editor.action.rename');
     });
 
+    // 注册格式化命令
+    const formatCommand = vscode.commands.registerCommand('abnf.formatDocument', () => {
+        const editor = vscode.window.activeTextEditor;
+        if (!editor || editor.document.languageId !== 'abnf') {
+            return;
+        }
+        vscode.commands.executeCommand('editor.action.formatDocument');
+    });
+
     // 将所有提供者添加到上下文
     context.subscriptions.push(
         renameProvider,
@@ -96,7 +115,9 @@ export function activate(context: vscode.ExtensionContext) {
         referenceProvider,
         documentSymbolProvider,
         hoverProvider,
-        renameCommand
+        formattingProvider,
+        renameCommand,
+        formatCommand
     );
 }
 

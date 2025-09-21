@@ -81,6 +81,9 @@ export const en: Messages = {
             ruleNotDefined: 'Rule "{0}" is not defined',
             renameFailed: 'Rename failed: {0}'
         },
+        format: {
+            formatDocument: 'Format ABNF Document'
+        },
         general: {
             abnfRule: 'ABNF Rule'
         }

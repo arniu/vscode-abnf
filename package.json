@@ -50,12 +50,23 @@
         "command": "abnf.renameRule",
         "title": "%abnf.commands.renameRule.title%",
         "category": "%abnf.commands.category%"
+      },
+      {
+        "command": "abnf.formatDocument",
+        "title": "%abnf.commands.formatDocument.title%",
+        "category": "%abnf.commands.category%"
       }
     ],
     "keybindings": [
       {
         "command": "abnf.renameRule",
         "key": "f2",
+        "when": "editorTextFocus && editorLangId == abnf"
+      },
+      {
+        "command": "abnf.formatDocument",
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i",
         "when": "editorTextFocus && editorLangId == abnf"
       }
     ]

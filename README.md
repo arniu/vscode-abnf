@@ -11,7 +11,7 @@
 - [x] Document symbols (Ctrl+Shift+O)
 - [x] Hover information with core rule details
 - [x] Internationalization support (中文 / English)
-- [ ] Format files
+- [x] Format files (Ctrl+Shift+I / Cmd+Shift+I)
 
 ## Usage
 
@@ -24,6 +24,17 @@
 重命名功能会自动找到并更新：
 - 规则定义行
 - 所有引用该规则的地方（包括角括号形式 `<rulename>` 和直接引用形式 `rulename`）
+
+### 格式化文档
+
+1. **使用快捷键**: 按 Ctrl+Shift+I (Windows/Linux) 或 Cmd+Shift+I (macOS)
+2. **使用命令面板**: 按 Ctrl+Shift+P，输入"格式化 ABNF 文档"
+3. **使用右键菜单**: 右键点击编辑器，选择"格式化文档"
+
+格式化功能会自动：
+- 规范化规则定义的格式
+- 保持注释行的原始格式
+- 确保操作符周围有适当的空格
 
 ### 其他功能
 
