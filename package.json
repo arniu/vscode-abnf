@@ -1,10 +1,10 @@
 {
   "name": "vscode-abnf",
   "displayName": "ABNF Language",
-  "description": "ABNF language for vscode",
+  "description": "ABNF language for vscode with rename support",
   "publisher": "arniu",
   "license": "Apache-2.0",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "engines": {
     "vscode": "^1.5.0"
   },
@@ -13,6 +13,7 @@
     "Programming Languages"
   ],
   "icon": "assets/icon.png",
+  "main": "./out/extension.js",
   "contributes": {
     "languages": [
       {
@@ -43,6 +44,30 @@
           "meta.embedded.block.abnf": "abnf"
         }
       }
+    ],
+    "commands": [
+      {
+        "command": "abnf.renameRule",
+        "title": "重命名ABNF规则",
+        "category": "ABNF"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "abnf.renameRule",
+        "key": "f2",
+        "when": "editorTextFocus && editorLangId == abnf"
+      }
     ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/vscode": "^1.104.0",
+    "typescript": "^5.9.2"
   }
 }

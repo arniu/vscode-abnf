@@ -6,13 +6,23 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.3.0] - 2024-01-XX
+
 ### Added
 
-- What added ...
+- 重命名ABNF规则支持 (F2键)
+- 跳转到定义功能 (F12键)
+- 查找所有引用功能 (Shift+F12键)
+- 文档符号支持 (Ctrl+Shift+O)
+- 悬停信息显示
+- 规则名称验证
+- 支持角括号形式的规则引用 (`<rulename>`)
 
 ### Changed
 
-- What changed ...
+- 更新版本号到0.3.0
+- 添加TypeScript支持
+- 改进语言服务器功能
 
 ## [0.2.0] - 2022-12-09
 
