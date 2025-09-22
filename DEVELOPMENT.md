@@ -1,95 +1,95 @@
-# 开发说明
+# Development Guide
 
-## 安装依赖
+## Install Dependencies
 
 ```bash
 npm install
 ```
 
-## 编译
+## Compile
 
 ```bash
 npm run compile
 ```
 
-## 开发模式
+## Development Mode
 
 ```bash
 npm run watch
 ```
 
-## 测试
+## Testing
 
-1. 在 VSCode 中按 F5 启动扩展开发主机
-2. 打开 `example/abnf-lang.abnf` 文件
-3. 测试以下功能：
-   - 将光标放在 `rulelist` 上，按 F2 重命名
-   - 将光标放在 `rule` 上，按 F12 跳转到定义
-   - 将光标放在 `rulename` 上，按 Shift+F12 查找所有引用
-   - 按 Ctrl+Shift+O 查看文档符号
-   - 按 Ctrl+Shift+I 格式化文档
+1. Press F5 in VSCode to launch the extension development host
+2. Open the `example/abnf-lang.abnf` file
+3. Test the following features:
+   - Place cursor on `rulelist` and press F2 to rename
+   - Place cursor on `rule` and press F12 to go to definition
+   - Place cursor on `rulename` and press Shift+F12 to find all references
+   - Press Ctrl+Shift+O to view document symbols
+   - Press Ctrl+Shift+I to format document
 
-## 功能说明
+## Feature Description
 
-### 重命名功能
-- 支持重命名 ABNF 规则定义
-- 自动更新所有引用（包括角括号形式 `<rulename>` 和直接引用形式 `rulename`）
-- 验证新规则名称是否符合 ABNF 规范
+### Rename Functionality
+- Supports renaming ABNF rule definitions
+- Automatically updates all references (including angle bracket form `<rulename>` and direct reference form `rulename`)
+- Validates new rule names for ABNF specification compliance
 
-### 格式化功能
-- **格式化文档**: Ctrl+Shift+I 键
-- 规范化规则定义格式
-- 保持注释行原始格式
-- 确保操作符周围适当空格
+### Formatting Functionality
+- **Format Document**: Ctrl+Shift+I key
+- Normalizes rule definition format
+- Preserves original format of comment lines
+- Ensures appropriate spacing around operators
 
-### 其他功能
-- **跳转到定义**: F12 键
-- **查找所有引用**: Shift+F12 键
-- **文档符号**: Ctrl+Shift+O
-- **悬停信息**: 鼠标悬停显示规则信息
-  - 核心规则显示完整定义和说明
-  - 用户规则显示重命名提示
+### Other Features
+- **Go to Definition**: F12 key
+- **Find All References**: Shift+F12 key
+- **Document Symbols**: Ctrl+Shift+O
+- **Hover Information**: Mouse hover displays rule information
+  - Core rules show complete definition and description
+  - User rules show rename hints
 
-## 架构设计
+## Architecture Design
 
-### 模块化架构
+### Modular Architecture
 
-项目采用模块化设计，将功能按职责分离：
+The project adopts a modular design that separates functionality by responsibility:
 
-- **`abnfLanguageServer.ts`**: 语言服务器协调器，负责协调各个模块
-- **`parser/`**: 解析器模块，负责解析 ABNF 文档
-- **`providers/`**: 提供者模块，包含所有语言服务器提供者
-- **`i18n/`**: 国际化模块，提供多语言支持
+- **`abnfLanguageServer.ts`**: Language server coordinator responsible for coordinating various modules
+- **`parser/`**: Parser module responsible for parsing ABNF documents
+- **`providers/`**: Provider module containing all language server providers
+- **`i18n/`**: Internationalization module providing multi-language support
 
-### 扩展性
+### Extensibility
 
-这种设计使得添加新功能变得简单：
+This design makes adding new features simple:
 
-1. **添加新的解析功能**: 在 `parser/` 目录下创建新的解析器
-2. **添加新的语言功能**: 在 `providers/` 目录下添加新的提供者
-3. **添加新的核心规则**: 在 `i18n/` 目录下扩展核心规则信息
+1. **Add new parsing functionality**: Create new parsers in the `parser/` directory
+2. **Add new language features**: Add new providers in the `providers/` directory
+3. **Add new core rules**: Extend core rule information in the `i18n/` directory
 
-## 文件结构
+## File Structure
 
 ```
 src/
-├── extension.ts            # 扩展主入口
-├── abnfLanguageServer.ts   # 语言服务器协调器
-├── parser/                 # 解析器模块
-│   └── abnfParser.ts       # ABNF 解析器
-├── providers/              # 提供者模块
-│   ├── renameProvider.ts   # 重命名提供者
-│   ├── formatProvider.ts   # 格式化提供者
-│   ├── hoverProvider.ts    # 悬停提供者
-│   └── symbolProvider.ts   # 符号提供者
-└── i18n/                   # 国际化模块
-    ├── index.ts            # 消息管理器
-    ├── types.ts            # 类型定义
-    ├── zh-CN.ts            # 中文消息
-    └── en.ts               # 英文消息
+├── extension.ts            # Extension main entry point
+├── abnfLanguageServer.ts   # Language server coordinator
+├── parser/                 # Parser module
+│   └── abnfParser.ts       # ABNF parser
+├── providers/              # Provider module
+│   ├── renameProvider.ts   # Rename provider
+│   ├── formatProvider.ts   # Format provider
+│   ├── hoverProvider.ts    # Hover provider
+│   └── symbolProvider.ts   # Symbol provider
+└── i18n/                   # Internationalization module
+    ├── index.ts            # Message manager
+    ├── types.ts            # Type definitions
+    ├── zh-CN.ts            # Chinese messages
+    └── en.ts               # English messages
 example/
-├── abnf-core.abnf          # ABNF核心规则示例
-├── abnf-lang.abnf          # ABNF语言定义示例
-├── abnf-lang-codeblock.md  # Markdown 代码块示例
-└── toml-lang.abnf          # TOML语言定义示例
+├── abnf-core.abnf          # ABNF core rules example
+├── abnf-lang.abnf          # ABNF language definition example
+├── abnf-lang-codeblock.md  # Markdown code block example
+└── toml-lang.abnf          # TOML language definition example
 ```

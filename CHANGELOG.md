@@ -10,22 +10,22 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Added
 
-- 重命名 ABNF 规则支持 (F2 键)
-- 跳转到定义功能 (F12 键)
-- 查找所有引用功能 (Shift+F12 键)
-- 文档符号支持 (Ctrl+Shift+O)
-- 悬停信息显示（核心规则详细信息）
-- 规则名称验证
-- 支持角括号形式的规则引用 (`<rulename>`)
-- 国际化支持（中文 / English）
-- 文档格式化功能 (Ctrl+Shift+I / Cmd+Shift+I)
-- 模块化架构重构，提高代码可维护性和扩展性
+- ABNF rule renaming support (F2 key)
+- Go to definition functionality (F12 key)
+- Find all references functionality (Shift+F12 key)
+- Document symbols support (Ctrl+Shift+O)
+- Hover information display (core rule details)
+- Rule name validation
+- Support for angle bracket rule references (`<rulename>`)
+- Internationalization support (中文 / English)
+- Document formatting functionality (Ctrl+Shift+I / Cmd+Shift+I)
+- Modular architecture refactoring for improved code maintainability and extensibility
 
 ### Changed
 
-- 更新版本号到 0.3.0
-- 添加 TypeScript 支持
-- 改进语言服务器功能
+- Updated version number to 0.3.0
+- Added TypeScript support
+- Improved language server functionality
 
 ## [0.2.0] - 2022-12-09
 

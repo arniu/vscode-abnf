@@ -17,38 +17,38 @@
 
 ### Renaming Rules
 
-1. **使用 F2 键**: 将光标放在规则名称上，按 F2 键即可重命名
-2. **使用右键菜单**: 右键点击规则名称，选择"重命名符号"
-3. **使用命令面板**: 按 Ctrl+Shift+P，输入"重命名 ABNF 规则"
+1. **Using F2 key**: Place cursor on rule name and press F2 to rename
+2. **Using right-click menu**: Right-click on rule name and select "Rename Symbol"
+3. **Using command palette**: Press Ctrl+Shift+P and type "Rename ABNF Rule"
 
-重命名功能会自动找到并更新：
-- 规则定义行
-- 所有引用该规则的地方（包括角括号形式 `<rulename>` 和直接引用形式 `rulename`）
+The rename functionality will automatically find and update:
+- Rule definition lines
+- All references to the rule (including angle bracket form `<rulename>` and direct reference form `rulename`)
 
-### 格式化文档
+### Formatting Documents
 
-1. **使用快捷键**: 按 Ctrl+Shift+I (Windows/Linux) 或 Cmd+Shift+I (macOS)
-2. **使用命令面板**: 按 Ctrl+Shift+P，输入"格式化 ABNF 文档"
-3. **使用右键菜单**: 右键点击编辑器，选择"格式化文档"
+1. **Using keyboard shortcut**: Press Ctrl+Shift+I (Windows/Linux) or Cmd+Shift+I (macOS)
+2. **Using command palette**: Press Ctrl+Shift+P and type "Format ABNF Document"
+3. **Using right-click menu**: Right-click in editor and select "Format Document"
 
-格式化功能会自动：
-- 规范化规则定义的格式
-- 保持注释行的原始格式
-- 确保操作符周围有适当的空格
+The formatting functionality will automatically:
+- Normalize rule definition format
+- Preserve original format of comment lines
+- Ensure appropriate spacing around operators
 
-### 其他功能
+### Other Features
 
-- **跳转到定义**: 将光标放在规则名称上，按 F12 或 Ctrl+点击
-- **查找所有引用**: 将光标放在规则名称上，按 Shift+F12
-- **查看文档符号**: 按 Ctrl+Shift+O 查看文件中的所有规则
-- **悬停信息**: 将鼠标悬停在规则名称上查看详细信息
-  - 核心规则显示完整定义和说明
-  - 用户规则显示重命名提示
+- **Go to Definition**: Place cursor on rule name and press F12 or Ctrl+click
+- **Find All References**: Place cursor on rule name and press Shift+F12
+- **View Document Symbols**: Press Ctrl+Shift+O to view all rules in the file
+- **Hover Information**: Hover mouse over rule name to view detailed information
+  - Core rules show complete definition and description
+  - User rules show rename hints
 
 ## Example
 
 ```abnf
-; 定义规则
+; Define rules
 rulelist = 1*( rule / (*c-wsp c-nl) )
 
 rule = rulename defined-as elements c-nl
@@ -56,7 +56,7 @@ rule = rulename defined-as elements c-nl
 rulename = ALPHA *(ALPHA / DIGIT / "-")
 ```
 
-在上面的例子中，重命名 `rulelist` 为 `grammar` 将会更新所有引用该规则的地方。
+In the example above, renaming `rulelist` to `grammar` will update all references to that rule.
 
 ## License
 
