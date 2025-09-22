@@ -1,7 +1,5 @@
 # ABNF Language for vscode
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/arniu.vscode-abnf.svg)](https://marketplace.visualstudio.com/items?itemName=arniu.vscode-abnf)
-
 ## Features
 
 - [x] Syntax highlighting
