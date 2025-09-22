@@ -2,12 +2,12 @@ import { Messages } from "./types";
 import { zhCN } from "./zh-CN";
 import { en } from "./en";
 
-let currentMessages: Messages;
+let currentMessages: Messages | undefined;
 
 // 消息映射
 const messageMap: { [locale: string]: Messages } = {
   "zh-CN": zhCN,
-  en: en,
+  en,
 };
 
 /**
@@ -15,7 +15,7 @@ const messageMap: { [locale: string]: Messages } = {
  * @param locale 语言环境
  */
 export function initializeMessages(locale: string): void {
-  currentMessages = messageMap[locale] || zhCN;
+  currentMessages = messageMap[locale] ?? zhCN;
 }
 
 /**
@@ -27,7 +27,7 @@ export function getMessages(): Messages {
     initializeMessages("zh-CN");
   }
 
-  return currentMessages!;
+  return currentMessages ?? zhCN;
 }
 
 /**
@@ -37,7 +37,8 @@ export function getMessages(): Messages {
  * @returns 格式化后的消息
  */
 export function formatMessage(template: string, ...args: string[]): string {
-  return template.replace(/\{(\d+)\}/g, (match, index) => {
-    return args[parseInt(index)] || match;
+  return template.replace(/\{(\d+)\}/g, (match, index: string) => {
+    const idx = parseInt(index, 10);
+    return args[idx] ?? match;
   });
 }

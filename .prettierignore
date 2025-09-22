@@ -1,0 +1,14 @@
+# VSCode test
+.vscode-test/
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Other
+*.log
+.DS_Store
+
+# tsconfig.json
+tsconfig.json

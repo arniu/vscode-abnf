@@ -22,6 +22,7 @@
 3. **Using command palette**: Press Ctrl+Shift+P and type "Rename ABNF Rule"
 
 The rename functionality will automatically find and update:
+
 - Rule definition lines
 - All references to the rule (including angle bracket form `<rulename>` and direct reference form `rulename`)
 
@@ -32,6 +33,7 @@ The rename functionality will automatically find and update:
 3. **Using right-click menu**: Right-click in editor and select "Format Document"
 
 The formatting functionality will automatically:
+
 - Normalize rule definition format
 - Preserve original format of comment lines
 - Ensure appropriate spacing around operators

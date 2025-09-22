@@ -1,95 +1,74 @@
 # Development Guide
 
-## Install Dependencies
+## Code Quality Tools
+
+This project has been configured with the following code quality tools:
+
+### ESLint
+
+- Static analysis for TypeScript/JavaScript code
+- Configuration file: `eslint.config.js` (ESLint 9.x new format)
+- Optimized specifically for VSCode extension development
+- Includes TypeScript recommended rules and type checking rules
+- Integrated with Prettier for consistent formatting
+- Available commands:
+  - `npm run lint` - Check for code issues
+  - `npm run lint:fix` - Automatically fix fixable issues
+
+### Prettier
+
+- Code formatting tool for consistent code style
+- Configuration file: `.prettierrc`
+- Ignore file: `.prettierignore`
+- Available commands:
+  - `npm run format` - Format all files
+  - `npm run format:check` - Check formatting status
+
+### Git Hooks
+
+- Uses Husky and lint-staged to automatically run lint before commits
+- Configuration file: `.husky/pre-commit`
+- Ensures committed code meets project standards
+
+## Development Environment Setup
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Initialize Git hooks:
+
+   ```bash
+   npm run prepare
+   ```
+
+3. Recommended VSCode extensions:
+   - Prettier - Code formatter
+   - ESLint
+   - TypeScript Importer
+
+## Workflow
+
+1. During development, VSCode will automatically format code and display ESLint errors
+2. When committing code, pre-commit hooks will automatically run lint and formatting
+3. Ensure all checks pass before committing code
+
+## Manual Execution
+
+If you need to run checks manually:
 
 ```bash
-npm install
-```
+# Check for code issues
+npm run lint
 
-## Compile
+# Automatically fix issues
+npm run lint:fix
 
-```bash
-npm run compile
-```
+# Format code
+npm run format
 
-## Development Mode
-
-```bash
-npm run watch
-```
-
-## Testing
-
-1. Press F5 in VSCode to launch the extension development host
-2. Open the `example/abnf-lang.abnf` file
-3. Test the following features:
-   - Place cursor on `rulelist` and press F2 to rename
-   - Place cursor on `rule` and press F12 to go to definition
-   - Place cursor on `rulename` and press Shift+F12 to find all references
-   - Press Ctrl+Shift+O to view document symbols
-   - Press Ctrl+Shift+I to format document
-
-## Feature Description
-
-### Rename Functionality
-- Supports renaming ABNF rule definitions
-- Automatically updates all references (including angle bracket form `<rulename>` and direct reference form `rulename`)
-- Validates new rule names for ABNF specification compliance
-
-### Formatting Functionality
-- **Format Document**: Ctrl+Shift+I key
-- Normalizes rule definition format
-- Preserves original format of comment lines
-- Ensures appropriate spacing around operators
-
-### Other Features
-- **Go to Definition**: F12 key
-- **Find All References**: Shift+F12 key
-- **Document Symbols**: Ctrl+Shift+O
-- **Hover Information**: Mouse hover displays rule information
-  - Core rules show complete definition and description
-  - User rules show rename hints
-
-## Architecture Design
-
-### Modular Architecture
-
-The project adopts a modular design that separates functionality by responsibility:
-
-- **`abnfLanguageServer.ts`**: Language server coordinator responsible for coordinating various modules
-- **`parser/`**: Parser module responsible for parsing ABNF documents
-- **`providers/`**: Provider module containing all language server providers
-- **`i18n/`**: Internationalization module providing multi-language support
-
-### Extensibility
-
-This design makes adding new features simple:
-
-1. **Add new parsing functionality**: Create new parsers in the `parser/` directory
-2. **Add new language features**: Add new providers in the `providers/` directory
-3. **Add new core rules**: Extend core rule information in the `i18n/` directory
-
-## File Structure
-
-```
-src/
-├── extension.ts            # Extension main entry point
-├── abnfLanguageServer.ts   # Language server coordinator
-├── parser/                 # Parser module
-│   └── abnfParser.ts       # ABNF parser
-├── providers/              # Provider module
-│   ├── renameProvider.ts   # Rename provider
-│   ├── formatProvider.ts   # Format provider
-│   ├── hoverProvider.ts    # Hover provider
-│   └── symbolProvider.ts   # Symbol provider
-└── i18n/                   # Internationalization module
-    ├── index.ts            # Message manager
-    ├── types.ts            # Type definitions
-    ├── zh-CN.ts            # Chinese messages
-    └── en.ts               # English messages
-example/
-├── abnf-core.abnf          # ABNF core rules example
-├── abnf-lang.abnf          # ABNF language definition example
-├── abnf-lang-codeblock.md  # Markdown code block example
-└── toml-lang.abnf          # TOML language definition example
+# Check formatting status
+npm run format:check
 ```
