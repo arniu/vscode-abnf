@@ -6,7 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-## [0.3.0] - 2024-01-XX
+## [0.3.0] - 2025-09-XX
 
 ### Added
 
@@ -23,8 +23,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Changed
 
-- Updated version number to 0.3.0
-- Added TypeScript support
 - Improved language server functionality
 
 ## [0.2.0] - 2022-12-09
