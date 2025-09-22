@@ -6,6 +6,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.3.1] - 2025-09-22
+
+### Fixed
+
+- Fixed extension activation failure due to module system incompatibility
+- Fixed VSCode version compatibility (now supports VSCode 1.15.0+)
+- Corrected activation events configuration
+
 ## [0.3.0] - 2025-09-22
 
 ### Added

@@ -4,10 +4,9 @@
   "description": "ABNF language for vscode",
   "publisher": "arniu",
   "license": "Apache-2.0",
-  "version": "0.3.0",
-  "type": "module",
+  "version": "0.3.1",
   "engines": {
-    "vscode": "^1.104.0"
+    "vscode": "^1.15.0"
   },
   "repository": "https://github.com/arniu/vscode-abnf",
   "categories": [
@@ -15,6 +14,9 @@
   ],
   "icon": "assets/icon.png",
   "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:abnf"
+  ],
   "contributes": {
     "languages": [
       {
@@ -85,7 +87,7 @@
   "devDependencies": {
     "@eslint/js": "^9.0.0",
     "@types/node": "^24.5.2",
-    "@types/vscode": "^1.104.0",
+    "@types/vscode": "^1.15.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
