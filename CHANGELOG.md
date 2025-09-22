@@ -6,13 +6,24 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-09-22
+
 ### Added
 
-- What added ...
+- ABNF rule renaming support (F2 key)
+- Go to definition functionality (F12 key)
+- Find all references functionality (Shift+F12 key)
+- Document symbols support (Ctrl+Shift+O)
+- Hover information display (core rule details)
+- Rule name validation
+- Support for angle bracket rule references (`<rulename>`)
+- Internationalization support (中文 / English)
+- Document formatting functionality (Ctrl+Shift+I / Cmd+Shift+I)
+- Modular architecture refactoring for improved code maintainability and extensibility
 
 ### Changed
 
-- What changed ...
+- Improved language server functionality
 
 ## [0.2.0] - 2022-12-09
 

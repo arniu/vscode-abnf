@@ -3,4 +3,40 @@
 .*
 
 .temp
+*.sketch
 example
+assets/*.sketch
+
+# Source files (only need compiled output)
+src/**
+tsconfig.json
+
+# Development files
+eslint.config.js
+.prettierrc*
+.husky/**
+lint-staged.config.*
+
+# Package manager files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Development documentation
+DEVELOPMENT.md
+CHANGELOG.md
+
+# Git files
+.git/**
+.gitignore
+.gitattributes
+
+# IDE files
+.vscode/**
+.idea/**
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

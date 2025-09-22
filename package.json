@@ -4,15 +4,17 @@
   "description": "ABNF language for vscode",
   "publisher": "arniu",
   "license": "Apache-2.0",
-  "version": "0.2.0",
+  "version": "0.3.0",
+  "type": "module",
   "engines": {
-    "vscode": "^1.5.0"
+    "vscode": "^1.104.0"
   },
   "repository": "https://github.com/arniu/vscode-abnf",
   "categories": [
     "Programming Languages"
   ],
   "icon": "assets/icon.png",
+  "main": "./out/extension.js",
   "contributes": {
     "languages": [
       {
@@ -43,6 +45,67 @@
           "meta.embedded.block.abnf": "abnf"
         }
       }
+    ],
+    "commands": [
+      {
+        "command": "abnf.renameRule",
+        "title": "%abnf.commands.renameRule.title%",
+        "category": "%abnf.commands.category%"
+      },
+      {
+        "command": "abnf.formatDocument",
+        "title": "%abnf.commands.formatDocument.title%",
+        "category": "%abnf.commands.category%"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "abnf.renameRule",
+        "key": "f2",
+        "when": "editorTextFocus && editorLangId == abnf"
+      },
+      {
+        "command": "abnf.formatDocument",
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i",
+        "when": "editorTextFocus && editorLangId == abnf"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,json,md}\"",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^24.5.2",
+    "@types/vscode": "^1.104.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "lru-cache": "^11.2.1"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
     ]
   }
 }

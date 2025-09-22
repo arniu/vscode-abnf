@@ -501,6 +501,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#rule-name-core</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#rule-name-angle-brackets</string>
 				</dict>
 				<dict>
@@ -571,7 +575,7 @@
                       HTAB      |
                       LF        |
                       LWSP      |
-                      OCTECT    |
+                      OCTET     |
                       SP        |
                       VCHAR     |
                       WSP
@@ -626,6 +630,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#rule-name-core</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#rule-group</string>
 				</dict>
 				<dict>
@@ -651,10 +659,6 @@
 				<dict>
 					<key>include</key>
 					<string>#string-double-quoted</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#rule-name-core</string>
 				</dict>
 				<dict>
 					<key>include</key>
